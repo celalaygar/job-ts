@@ -34,12 +34,12 @@ const TaskDetailPage = () => {
                     <h1 className="text-2xl font-bold mb-4">Tasks Details</h1>
                     <div className="w-full bg-white shadow-lg rounded-lg mt-2 p-6">
                         <h1 className="text-3xl font-bold mb-4">{task.title}</h1>
-                        <div className=" text-lg p-4 rounded-lg mb-4 w-64 ">
-                            <strong>Task No: {task.taskNumber}</strong> 
-                        </div>
                         <div className="flex flex-col md:flex-row md:space-x-4 border-2 border-black-500 shadow-xl mt-2  p-6">
                             <div className="md:w-7/12 grid justify-items-start">
-                                <p className="mb-2"><strong>Açıklama:</strong> {task.description}</p>
+                                <div className="bg-gray-200  text-lg p-2 rounded-lg mb-2 w-48 ">
+                                    <strong>Task No: </strong> {task.taskNumber}
+                                </div>
+                                <p className="mb-2 text-wrap"><strong>Açıklama:</strong> {task.description}</p>
                             </div>
                             <div className="md:w-5/12 grid justify-items-end">
                                 <p className="mb-2"><strong>Atanan:</strong> {task.assigned}</p>
@@ -52,7 +52,7 @@ const TaskDetailPage = () => {
                                 {priorityOptions.map((option) => (
                                     <div
                                         key={option}
-                                        className={`p-2 rounded-lg ${task.priority === option ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}
+                                        className={`p-2 rounded-lg ${task.priority === option ? 'bg-blue-400 text-white' : 'bg-gray-200 text-black'}`}
                                     >
                                         {option}
                                     </div>
@@ -65,7 +65,7 @@ const TaskDetailPage = () => {
                                 {statusOptions.map((option) => (
                                     <div
                                         key={option}
-                                        className={`p-2 rounded-lg ${task.status === option ? 'bg-green-500 text-white' : 'bg-gray-200 text-black'}`}
+                                        className={`p-2 rounded-lg ${task.status === option ? 'bg-blue-400 text-white' : 'bg-gray-200 text-black'}`}
                                     >
                                         {option}
                                     </div>
@@ -78,7 +78,7 @@ const TaskDetailPage = () => {
                                 {typeOptions.map((option) => (
                                     <div
                                         key={option}
-                                        className={`p-2 rounded-lg ${task.type === option ? 'bg-purple-500 text-white' : 'bg-gray-200 text-black'}`}
+                                        className={`p-2 rounded-lg ${task.type === option ? 'bg-blue-400 text-white' : 'bg-gray-200 text-black'}`}
                                     >
                                         {option}
                                     </div>

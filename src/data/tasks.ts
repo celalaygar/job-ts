@@ -27,7 +27,7 @@ const tasks: Task[] = [
     {
         taskNumber: 'task-001',
         title: 'Landing on Mars',
-        description: 'Identify a safe landing spot.',
+        description: 'Identify a safe landing spot. Kubernetes creates one PersistentVolume for each VolumeClaimTemplate definition on an statefulset. That makes each statefulset pod have its own storage that is not shared across the replicas. However, I would like to share the same volume across all the statefulset replicas. remote: Resolving deltas: 100% (3/3), completed with 3 local objects. Writing objects: 100% (7/7), 650 bytes | 325.00 KiB/s, done.',
         assigned: 'Elsa Hugo',
         createdAt: '2023-01-01',
         priority: 'High',
