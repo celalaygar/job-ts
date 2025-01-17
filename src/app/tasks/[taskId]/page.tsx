@@ -85,11 +85,11 @@ const TaskDetailPage = () => {
                                 ))}
                             </div>
                         </div>
-                        <div className="border-2 border-black-500 shadow-xl mt-2 p-6">
+                        <div className="border-2 border-black-500 shadow-xl mt-5 p-6">
                             <h2 className="text-xl font-semibold mb-2">Yorumlar</h2>
                             {task.comments.length > 0 ? (
                                 task.comments.map((comment, index) => (
-                                    <div key={index} className=" shadow-xl  mb-2 p-2 border-2 border-gray-300 rounded">
+                                    <div key={index} className=" shadow-xl bg-gray-200  mb-2 p-2 border-2 border-gray-300 rounded">
                                         <p><strong>{comment.user}:</strong></p>
                                         <p>{comment.comment}</p>
                                         <p className="text-sm text-gray-500 mt-5">{comment.createdDate}</p>
