@@ -31,7 +31,7 @@ const tasks: Task[] = [
         assigned: 'Elsa Hugo',
         createdAt: '2023-01-01',
         priority: 'High',
-        status: 'To Do',
+        status: 'In Progress',
         type: 'Story',
         comments: [
             { comment: 'Great idea!', user: 'Alice', createdDate: '2023-01-02' },

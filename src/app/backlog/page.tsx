@@ -14,34 +14,42 @@ const BacklogPage = () => {
                 <Sidebar />
                 <div className="flex-grow p-4">
                     <h1 className="text-2xl font-bold mb-4">Backlog</h1>
-                    <table className="min-w-full border-collapse border border-gray-200">
-                        <thead>
-                            <tr>
-                                <th className="border border-gray-300 p-2">Task Numarası</th>
-                                <th className="border border-gray-300 p-2">Task Başlığı</th>
-                                <th className="border border-gray-300 p-2">Atanan</th>
-                                <th className="border border-gray-300 p-2">Oluşturulma Tarihi</th>
-                                <th className="border border-gray-300 p-2">Durum</th>
-                                <th className="border border-gray-300 p-2">Tip</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {tasks.map((task) => (
-                                <tr key={task.taskNumber}>
-                                    <td className="border border-gray-300 p-2 text-blue-500">
+                    <div className="grid grid-cols-1 gap-4">
+                        {tasks.map((task) => (
+                            <div 
+                                key={task.taskNumber} 
+                                className="bg-white shadow-lg rounded-lg p-6 transition duration-200 ease-in-out hover:bg-gray-200"
+                            >
+                                <div className="flex flex-col md:flex-row md:space-x-4 ">
+                                    <div className="w-1/2 grid justify-items-start">
+                                        <h5 className="text-xl font-bold">{task.title}  {task.taskNumber}</h5>
+                                    </div>
+                                    <div className="w-1/2 grid justify-items-end">
+                                        <p className="mb-2"><strong>Atanan:</strong> {task.assigned}</p>
+                                    </div>
+                                </div>
+                                <div className="flex flex-col md:flex-row md:space-x-4 ">
+                                    <div className="w-1/2 grid justify-items-start">
+                                        <p className="mb-2"><strong>Öncelik:</strong> {task.priority}</p>
+                                    </div>
+                                    <div className="w-1/2 grid justify-items-end">
+                                        <p className="mb-2"><strong>Tip:</strong> {task.type}</p>
+                                    </div>
+                                </div>
+                                
+                                <div className="flex flex-col md:flex-row md:space-x-4  ">
+                                    <div className="w-1/2 grid justify-items-start">
                                         <Link href={`/tasks/${task.taskNumber}`}>
-                                            {task.taskNumber}
+                                            <button className="mt-2 bg-blue-500 text-white rounded px-4 py-2">İncele</button>
                                         </Link>
-                                    </td>
-                                    <td className="border border-gray-300 p-2">{task.title}</td>
-                                    <td className="border border-gray-300 p-2">{task.assigned}</td>
-                                    <td className="border border-gray-300 p-2">{task.createdAt}</td>
-                                    <td className="border border-gray-300 p-2">{task.status}</td>
-                                    <td className="border border-gray-300 p-2">{task.type}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                                    </div>
+                                    <div className="w-1/2 grid justify-items-end">
+                                        <p className="mb-2"><strong>Oluşturulma Tarihi:</strong> {task.createdAt}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
