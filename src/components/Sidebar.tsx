@@ -22,7 +22,7 @@ const Sidebar = () => {
 
     return (
         <div
-            className={`mt-2 bg-gray-800 p-4 ${isCollapsed ? 'w-16' : 'w-60'} transition-width duration-300`
+            className={`mt-2 bg-gray-800 p-4 ${isCollapsed ? 'w-20' : 'w-60'} transition-width duration-300`
             }
             style={{ backgroundColor: '#eeecee ', color: "#000000" }}>
             <button onClick={toggleSidebar} className="mb-4 ml-2">
@@ -30,8 +30,10 @@ const Sidebar = () => {
             </button>
             <div className={`h-screen flex flex-col `}>
                 {sidebarLinks.map((link) => (
-                    <Link key={link.label} href={link.href} className={'flex items-center p-2 hover:bg-gray-400 rounded '}>
-                        <ListItemIcon className={`${isCollapsed ? ' pt-2' : ''}`}>
+                    <Link key={link.label} href={link.href}
+                        style={{ padding: `${isCollapsed ? ' 10px 10px 11px 10px ' : ' 6px 10px 7px 10px '}` }}
+                        className={'flex items-center  hover:bg-gray-400 rounded '}>
+                        <ListItemIcon >
                             {icons[link.icon]}
                         </ListItemIcon>
                         {!isCollapsed && <ListItemText primary={link.label} className="" />}
