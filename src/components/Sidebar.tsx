@@ -3,7 +3,7 @@ import { ListItemIcon, ListItemText } from '@mui/material';
 import { People, Assignment, Timeline, ListAlt, Home, Person } from '@mui/icons-material';
 import Link from 'next/link';
 import sidebarLinks from '../data/sidebarLinks';
-
+import MenuIcon from '@mui/icons-material/Menu';
 const Sidebar = () => {
     const [isCollapsed, setIsCollapsed] = useState(false);
 
@@ -12,30 +12,33 @@ const Sidebar = () => {
     };
 
     const icons = {
-        Home: <Home className="text-white" />,
-        Person: <Person className="text-white" />,
-        People: <People className="text-white" />,
-        Assignment: <Assignment className="text-white" />,
-        Timeline: <Timeline className="text-white" />,
-        ListAlt: <ListAlt className="text-white" />,
+        Home: <Home className="text-black" />,
+        Person: <Person className="text-black" />,
+        People: <People className="text-black" />,
+        Assignment: <Assignment className="text-black" />,
+        Timeline: <Timeline className="text-black" />,
+        ListAlt: <ListAlt className="text-black" />,
     };
 
     return (
-        <div className={`bg-gray-800 p-4 ${isCollapsed ? 'w-16' : 'w-60'} transition-width duration-300`}>
-            <button onClick={toggleSidebar} className="text-white mb-4">
-                {isCollapsed ? '>' : '<'}
+        <div
+            className={`mt-2 bg-gray-800 p-4 ${isCollapsed ? 'w-16' : 'w-60'} transition-width duration-300`
+            }
+            style={{ backgroundColor: '#eeecee ', color: "#000000" }}>
+            <button onClick={toggleSidebar} className="mb-4 ml-2">
+                <MenuIcon />
             </button>
             <div className={`h-screen flex flex-col `}>
                 {sidebarLinks.map((link) => (
-                    <Link key={link.label} href={link.href} className="flex items-center p-2 hover:bg-gray-700 rounded text-white">
-                        <ListItemIcon className={`${isCollapsed ? 'pt-1.5' : ''}`}>
+                    <Link key={link.label} href={link.href} className={'flex items-center p-2 hover:bg-gray-400 rounded '}>
+                        <ListItemIcon className={`${isCollapsed ? ' pt-2' : ''}`}>
                             {icons[link.icon]}
                         </ListItemIcon>
-                        {!isCollapsed && <ListItemText primary={link.label} className="text-white" />}
+                        {!isCollapsed && <ListItemText primary={link.label} className="" />}
                     </Link>
                 ))}
             </div>
-        </div>
+        </div >
     );
 };
 

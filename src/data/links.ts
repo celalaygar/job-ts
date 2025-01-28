@@ -1,4 +1,17 @@
-const links = {
+interface Links {
+    dashboard: string;
+    home: string;
+    login: string;
+    register: string;
+    profile: string;
+    users: string;
+    tasks: string;
+    sprints: string;
+    backlog: string;
+}
+
+
+const links: Links = {
     dashboard: '/dashboard',
     home: '/',
     login: '/',
