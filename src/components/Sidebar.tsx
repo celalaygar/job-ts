@@ -39,10 +39,8 @@ const Sidebar = () => {
                         onClick={e => setActiveMenu(link.activeKey)}
                         style={{ padding: `${isCollapsed ? ' 10px 10px 11px 10px ' : ' 6px 10px 7px 10px '}` }}
                         className={`${link.activeKey === sessionStorage.getItem("globalActiveKey") ? ' bg-gray-300 ' : '  '}` +
-                            'flex items-center  hover:bg-gray-200 rounded '}>
-                        <ListItemIcon >
-                            {icons[link.icon]}
-                        </ListItemIcon>
+                            'flex items-center  hover:bg-gray-300 rounded '}>
+                        <ListItemIcon > {icons[link.icon]} </ListItemIcon>
                         {!isCollapsed && <ListItemText primary={link.label} className="" />}
                     </Link>
                 ))}
