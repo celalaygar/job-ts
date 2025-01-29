@@ -6,6 +6,7 @@ interface Links {
     profile: string;
     users: string;
     tasks: string;
+    projects: string;
     sprints: string;
     backlog: string;
 }
@@ -19,6 +20,7 @@ const links: Links = {
     profile: '/profile',
     users: '/users',
     tasks: '/tasks',
+    projects: '/projects',
     sprints: '/sprints',
     backlog: '/backlog',
 };

@@ -1,12 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ListItemIcon, ListItemText } from '@mui/material';
 import { People, Assignment, Timeline, ListAlt, Home, Person } from '@mui/icons-material';
+import PermMediaIcon from '@mui/icons-material/PermMedia';
 import Link from 'next/link';
 import sidebarLinks, { SidebarLink } from '../data/sidebarLinks';
 import MenuIcon from '@mui/icons-material/Menu';
-const Sidebar = () => {
+
+
+type MainFrameProps = {
+    bgColor: string;
+};
+const Sidebar: React.FC<MainFrameProps> = ({ bgColor }) => {
     const [isCollapsed, setIsCollapsed] = useState(false);
-    const [globalActiveKey, setGlobalActiveKey] = React.useState<string>(sessionStorage.getItem("globalActiveKey") || "home");
+
+    const [globalActiveKey, setGlobalActiveKey] = React.useState<string>("home");
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            setGlobalActiveKey(sessionStorage.getItem("globalActiveKey") || "home");
+        }
+    }, []);
 
     const toggleSidebar = () => {
         setIsCollapsed(!isCollapsed);
@@ -23,13 +36,14 @@ const Sidebar = () => {
         Assignment: <Assignment className="text-black" />,
         Timeline: <Timeline className="text-black" />,
         ListAlt: <ListAlt className="text-black" />,
+        PermMediaIcon: <PermMediaIcon className="text-black" />,
+
     };
 
     return (
         <div
-            className={`mt-2 bg-gray-800 p-4 ${isCollapsed ? 'w-20' : 'w-60'} transition-width duration-300`
-            }
-            style={{ backgroundColor: '#eeecee ', color: "#000000" }}>
+            className={`mt-2  p-4 ${isCollapsed ? 'w-20' : 'w-60'} transition-width duration-300`}
+            style={{ backgroundColor: bgColor ? bgColor : '#fffffe', color: "#000000" }}>
             <button onClick={toggleSidebar} className="mb-4 ml-2">
                 <MenuIcon />
             </button>

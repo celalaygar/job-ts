@@ -16,15 +16,15 @@ const HomePage = () => {
 
     return (
         <ClientLayout>
-            <Box 
-                sx={{ 
-                    width: '100%', 
-                    typography: 'body1', 
-                    display: 'flex', 
-                    flexDirection: 'column', 
-                    alignItems: 'center', 
-                    justifyContent: 'center', 
-                    marginTop: '10px' 
+            <Box
+                sx={{
+                    width: '100%',
+                    typography: 'body1',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginTop: '10px'
                 }}
             >
                 <Tabs value={value} onChange={handleChange} aria-label="giriş ve kayıt sekmeleri">

@@ -34,6 +34,7 @@ export const config = {
         '/profile',
         '/tasks',
         '/tasks/:taskId([a-zA-Z0-9\-]+)',
+        '/projects',
         '/users',
         '/sprints',
         '/backlog',

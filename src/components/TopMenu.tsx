@@ -3,7 +3,13 @@ import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import links from '../data/links'; // Linkleri içe aktar
 import { setCookie, deleteCookie, getCookie } from 'cookies-next'; // Çerezleri ayarlamak, silmek ve almak için
 
-const TopMenu = () => {
+
+
+
+type MainFrameProps = {
+    bgColor: string;
+};
+const TopMenu: React.FC<MainFrameProps> = ({ bgColor }) => {
     const [user, setUser] = useState<{ firstName?: string; lastName?: string, email: string }>({}); // Kullanıcı bilgilerini saklamak için state oluştur
 
     useEffect(() => {
@@ -24,7 +30,7 @@ const TopMenu = () => {
     };
 
     return (
-        <AppBar position="static" style={{ backgroundColor: '#eeecee ', color: "#000000" }}>
+        <AppBar position="static" style={{ backgroundColor: bgColor ? bgColor : '#fffffe', color: "#000000" }}>
             <Toolbar>
                 <Typography variant="h6" sx={{ flexGrow: 1 }}>
                     Logo

@@ -9,22 +9,18 @@ import TopMenu from '../../components/TopMenu'; // Yeni TopMenu bileşeni
 import tasks from '@/data/tasks';
 import Link from 'next/link';
 import projects from '@/data/project';
-import DashboardMainPage from '@/components/dashboard/DashboardMainPage';
+import ProjectsMainPage from '@/components/projects/ProjectsMainPage';
 import MainFrameComponent from '@/components/MainFrameComponent';
 
-
-
-
-const Dashboard: React.FC = () => {
-
+const Projects = () => {
 
     return (
         <>
-            <MainFrameComponent title=''>
-                <DashboardMainPage />
+            <MainFrameComponent title='Projeler'>
+                <ProjectsMainPage />
             </MainFrameComponent>
         </>
     );
 };
 
-export default Dashboard; 
+export default Projects; 
