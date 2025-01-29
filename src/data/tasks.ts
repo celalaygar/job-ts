@@ -3,12 +3,17 @@ export type Priority = 'Highest' | 'High' | 'Medium' | 'Low' | 'Lowest';
 export type TaskStatus = 'To Do' | 'In Progress' | 'Done' | 'Test' | 'Dev' | 'Prod';
 export type TaskType = 'Story' | 'Feature' | 'Bug';
 
+export interface Project {
+    id: string;
+    name: string;
+    projectCode: string; // Date string
+}
+
 export interface Comment {
     comment: string;
     user: string;
     createdDate: string; // Date string
 }
-
 // Define the Task interface
 export interface Task {
     taskNumber: string;
@@ -19,6 +24,7 @@ export interface Task {
     priority: Priority;
     status: TaskStatus;
     type: TaskType;
+    projectId: string;
     comments: Comment[]; // Add comments array
 }
 
@@ -33,6 +39,7 @@ const tasks: Task[] = [
         priority: 'High',
         status: 'In Progress',
         type: 'Story',
+        projectId: 'PR-001',
         comments: [
             { comment: 'Great idea!', user: 'Alice', createdDate: '2023-01-02' },
             { comment: 'Let’s discuss this further.', user: 'Bob', createdDate: '2023-01-03' },
@@ -47,6 +54,7 @@ const tasks: Task[] = [
         priority: 'Medium',
         status: 'In Progress',
         type: 'Feature',
+        projectId: 'PR-001',
         comments: [
             { comment: 'We need more resources for this.', user: 'Charlie', createdDate: '2023-01-04' },
         ],
@@ -60,6 +68,7 @@ const tasks: Task[] = [
         priority: 'Highest',
         status: 'Done',
         type: 'Bug',
+        projectId: 'PR-001',
         comments: [
             { comment: 'Everything looks good for launch.', user: 'Diana', createdDate: '2023-01-05' },
         ],
@@ -73,6 +82,7 @@ const tasks: Task[] = [
         priority: 'Low',
         status: 'To Do',
         type: 'Story',
+        projectId: 'PR-001',
         comments: [
             { comment: 'Everything looks good for launch.', user: 'Diana', createdDate: '2023-01-05' },
             { comment: 'use variant modifiers to target.', user: 'Klara', createdDate: '2023-01-05' },
@@ -88,6 +98,7 @@ const tasks: Task[] = [
         priority: 'Medium',
         status: 'In Progress',
         type: 'Feature',
+        projectId: 'PR-001',
         comments: [],
     },
     {
@@ -99,6 +110,7 @@ const tasks: Task[] = [
         priority: 'Highest',
         status: 'To Do',
         type: 'Bug',
+        projectId: 'PR-001',
         comments: [],
     },
     {
@@ -110,6 +122,7 @@ const tasks: Task[] = [
         priority: 'High',
         status: 'Test',
         type: 'Story',
+        projectId: 'PR-001',
         comments: [],
     },
     {
@@ -121,6 +134,7 @@ const tasks: Task[] = [
         priority: 'Medium',
         status: 'Dev',
         type: 'Feature',
+        projectId: 'PR-001',
         comments: [],
     },
     {
@@ -132,6 +146,7 @@ const tasks: Task[] = [
         priority: 'Low',
         status: 'Prod',
         type: 'Bug',
+        projectId: 'PR-001',
         comments: [],
     },
     {
@@ -143,6 +158,7 @@ const tasks: Task[] = [
         priority: 'Highest',
         status: 'Done',
         type: 'Story',
+        projectId: 'PR-001',
         comments: [],
     },
 ];
