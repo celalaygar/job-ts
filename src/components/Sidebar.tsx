@@ -42,7 +42,7 @@ const Sidebar: React.FC<MainFrameProps> = ({ bgColor }) => {
 
     return (
         <div
-            className={`mt-2  p-4 ${isCollapsed ? 'w-20' : 'w-60'} transition-width duration-300`}
+            className={`mt-2  p-4 ${isCollapsed ? 'w-20' : 'w-60'} transition-width duration-300 mt-4`}
             style={{ backgroundColor: bgColor ? bgColor : '#fffffe', color: "#000000" }}>
             <button onClick={toggleSidebar} className="mb-4 ml-2">
                 <MenuIcon />

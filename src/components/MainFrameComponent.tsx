@@ -23,7 +23,7 @@ const MainFrameComponent: React.FC<MainFrameProps> = ({ title, children }) => {
             <TopMenu bgColor={themeColor.topmenuColor} />
             <div className="flex">
                 <Sidebar bgColor={themeColor.sidebarColor} />
-                <div className="flex-grow p-2 ">
+                <div className="flex-grow p-2 ml-2 mt-2">
                     <div
                         style={{ backgroundColor: themeColor.childrenColor, height: "100%" }}
                         className="grid grid-cols-1 gap-4 px-4">
