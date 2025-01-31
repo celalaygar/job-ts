@@ -23,6 +23,7 @@ const TopMenu: React.FC<MainFrameProps> = ({ bgColor }) => {
             const currentOrigin = window.location.origin; // Mevcut portu dinamik olarak al
             console.log("currentOrigin");
             console.log(currentOrigin);
+            sessionStorage.removeItem("globalActiveKey")
             await fetch("/api/auth/logout");
             await signOut({ callbackUrl: currentOrigin }); // Çıkış yaptıktan sonra o porta yönlendir
         } catch (error) {

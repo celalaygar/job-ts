@@ -8,13 +8,8 @@ import { getToken } from 'next-auth/jwt';
 export async function middleware(request: NextRequest) {
     const token = await getToken({ req: request, secret: "your-secret-key" });
     console.log('Middleware çalışıyor...');
-    console.log("token");
-    console.log(token);
-    const cookies = parse(request.headers.get('cookie') || '');
-    const loginResponse = cookies.loginResponse;
 
-    console.log("cookies");
-    console.log(cookies);
+    const cookies = parse(request.headers.get('cookie') || '');
 
     //console.log('Login Response Cookie:', loginResponse);
     console.log('request.nextUrl.pathname:', request.nextUrl.pathname);

@@ -6,6 +6,7 @@ import Sidebar from '../../components/Sidebar';
 import MainFrameComponent from '@/components/MainFrameComponent';
 import { useSession } from 'next-auth/react';
 import { LinearProgress, List, ListItem, ListItemText } from '@mui/material';
+import UsersMainPage from '@/components/users/UsersMainPage';
 
 const UsersPage = () => {
 
@@ -42,18 +43,7 @@ const UsersPage = () => {
         loading ? <LinearProgress /> :
             <>
                 <MainFrameComponent title='Kullanıcılar'>
-                    <>
-                        {loading ? <LinearProgress /> :
-                            <><List>
-                                {users && users.map((user) => (
-                                    <ListItem key={user.id}>
-                                        <ListItemText primary={`${user.firstname} ${user.lastname}`} secondary={user.email} />
-                                    </ListItem>
-                                ))}
-                            </List>
-                            </>
-                        }
-                    </>
+                    <UsersMainPage loading={loading} users={users} />
                 </MainFrameComponent>
             </>
     );
