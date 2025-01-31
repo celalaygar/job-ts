@@ -15,6 +15,7 @@ type MainFrameProps = {
     bgColor: string;
 };
 const Sidebar: React.FC<MainFrameProps> = ({ bgColor }) => {
+    sessionStorage.setItem("globalActiveKey", sessionStorage.getItem("globalActiveKey") || "home")
     const [isCollapsed, setIsCollapsed] = useState(false);
 
     const [globalActiveKey, setGlobalActiveKey] = React.useState<string>("home");

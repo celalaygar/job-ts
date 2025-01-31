@@ -2,9 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { AppBar, Toolbar, Typography, Button } from "@mui/material";
-import links from "../data/links"; // Linkleri içe aktar
 import { useSession, signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
 
 type MainFrameProps = {
     bgColor: string;
@@ -13,19 +11,17 @@ type MainFrameProps = {
 const TopMenu: React.FC<MainFrameProps> = ({ bgColor }) => {
     const { data: session, status } = useSession();
     const [user, setUser] = useState(session?.user);
-    const router = useRouter();
 
     const handleLogout = async () => {
         try {
 
-            console.log("router.basePath");
-            console.log(router);
-            const currentOrigin = window.location.origin; // Mevcut portu dinamik olarak al
-            console.log("currentOrigin");
-            console.log(currentOrigin);
+            const currentOrigin = window.location.origin;
             sessionStorage.removeItem("globalActiveKey")
+            let callbackUrl = currentOrigin + "/";
+            console.log("callbackUrl");
+            console.log(callbackUrl);
             await fetch("/api/auth/logout");
-            await signOut({ callbackUrl: currentOrigin + "/" }); // Çıkış yaptıktan sonra o porta yönlendir
+            await signOut({ callbackUrl: callbackUrl });
         } catch (error) {
             console.error("Çıkış yaparken hata oluştu:", error);
         }
