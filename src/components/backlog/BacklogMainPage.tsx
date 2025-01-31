@@ -1,3 +1,5 @@
+"use client";
+
 import projects from '@/data/project';
 import tasks from '@/data/tasks';
 import { getCookie } from 'cookies-next';

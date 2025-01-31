@@ -1,54 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import { AppBar, Toolbar, Typography, Button } from '@mui/material';
-import links from '../data/links'; // Linkleri içe aktar
-import { setCookie, deleteCookie, getCookie } from 'cookies-next'; // Çerezleri ayarlamak, silmek ve almak için
+"use client";
 
-
-
+import React, { useEffect, useState } from "react";
+import { AppBar, Toolbar, Typography, Button } from "@mui/material";
+import links from "../data/links"; // Linkleri içe aktar
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 type MainFrameProps = {
     bgColor: string;
 };
+
 const TopMenu: React.FC<MainFrameProps> = ({ bgColor }) => {
-    const [user, setUser] = useState<{ firstName?: string; lastName?: string, email: string }>({}); // Kullanıcı bilgilerini saklamak için state oluştur
+    const { data: session, status } = useSession();
+    const [user, setUser] = useState(session?.user);
+    const router = useRouter();
 
-    useEffect(() => {
-        const response = JSON.parse(getCookie('loginResponse') || '{}');
-        if (response && response.user) {
-            setUser({
-                firstName: response.user.firstname,
-                lastName: response.user.lastname,
-                email: response.user.email
-            });
-        } else {
-            console.error("Kullanıcı verileri loginResponse'da mevcut değil");
+    const handleLogout = async () => {
+        try {
+
+            console.log("router.basePath");
+            console.log(router);
+            const currentOrigin = window.location.origin; // Mevcut portu dinamik olarak al
+            console.log("currentOrigin");
+            console.log(currentOrigin);
+            await fetch("/api/auth/logout");
+            await signOut({ callbackUrl: currentOrigin }); // Çıkış yaptıktan sonra o porta yönlendir
+        } catch (error) {
+            console.error("Çıkış yaparken hata oluştu:", error);
         }
-    }, []);
-    const handleLogout = () => {
-        deleteCookie('loginResponse'); // Çerezdeki 'loginResponse' değerini sil
-        window.location.href = links.home; // Ana sayfaya yönlendir
     };
-
     return (
-        <AppBar position="static" style={{ backgroundColor: bgColor ? bgColor : '#fffffe', color: "#000000" }}>
+        <AppBar position="static" style={{ backgroundColor: bgColor ? bgColor : "#fffffe", color: "#000000" }}>
             <Toolbar>
                 <Typography variant="h6" sx={{ flexGrow: 1 }}>
                     Logo
                 </Typography>
-                {user.firstName && user.lastName && user.email && (
+                {session?.user && (
                     <>
+                        <div className="text-black m-4">{session?.user?.email}</div>
                         <div className="text-black m-4">
-                            {user.email}
-                        </div>
-                        <div className="text-black m-4">
-                            {user.firstName} {user.lastName}
+                            {session?.user?.firstName} {session?.user?.lastName}
                         </div>
                     </>
                 )}
-                <Button color="inherit" onClick={handleLogout}>Çıkış Yap</Button>
+                <Button color="inherit" onClick={handleLogout}>
+                    Çıkış Yap
+                </Button>
             </Toolbar>
         </AppBar>
     );
 };
 
-export default TopMenu; 
+export default TopMenu;

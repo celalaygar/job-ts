@@ -1,35 +1,31 @@
+"use client";
+
 import projects from '@/data/project';
 import tasks from '@/data/tasks';
 import { getCookie } from 'cookies-next';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
-
+export interface UserProfile {
+    firstName?: string | null; // Kullanıcının adı (isteğe bağlı)
+    lastName?: string | null;  // Kullanıcının soyadı (isteğe bağlı)
+    email?: string | null;     // Kullanıcının e-posta adresi (isteğe bağlı)
+}
 
 type MainFrameProps = {
 };
 
 const MyProfileMainPage: React.FC<MainFrameProps> = () => {
-    const [user, setUser] = useState<{ firstName?: string; lastName?: string; email?: string }>({});
+    const { data: session, status } = useSession();
+    const [user, setUser] = useState<UserProfile | undefined>(session?.user);
 
-    useEffect(() => {
-        const response = JSON.parse(getCookie('loginResponse') || '{}');
-        if (response && response.user) {
-            setUser({
-                firstName: response.user.firstname,
-                lastName: response.user.lastname,
-                email: response.user.email
-            });
-        } else {
-            console.error("Kullanıcı verileri loginResponse'da mevcut değil");
-        }
-    }, []);
     return (
 
         <>
             <div className="grid grid-cols-2 gap-4 bg-white text-black">
                 <>
-                    {user.firstName && user.lastName ? (
+                    {user && user.firstName && user.lastName ? (
                         <table className="min-w-full border-collapse border border-gray-300">
                             <thead>
                                 <tr>

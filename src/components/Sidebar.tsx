@@ -1,3 +1,7 @@
+"use client";
+
+
+
 import React, { useEffect, useState } from 'react';
 import { ListItemIcon, ListItemText } from '@mui/material';
 import { People, Assignment, Timeline, ListAlt, Home, Person } from '@mui/icons-material';

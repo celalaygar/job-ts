@@ -10,14 +10,17 @@
     "clean": "rimraf .next"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.0",
-    "@mui/material": "^6.4.0",
+    "@mui/material": "^6.4.1",
+    "autoprefixer": "^10.4.20",
+    "axios": "^1.7.9",
     "cookie": "^1.0.2",
     "cookies-next": "^5.0.2",
     "jsonwebtoken": "^9.0.2",
     "next": "15.1.4",
+    "next-auth": "^4.24.11",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -28,9 +31,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.4",
-    "postcss": "^8",
+    "postcss": "^8.5.1",
     "rimraf": "^6.0.1",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5"
   }
 }

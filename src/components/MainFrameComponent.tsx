@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import TopMenu from './TopMenu';
 import Sidebar from './Sidebar';

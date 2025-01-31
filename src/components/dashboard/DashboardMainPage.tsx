@@ -1,3 +1,5 @@
+"use client";
+
 import projects from '@/data/project';
 import tasks from '@/data/tasks';
 import Link from 'next/link';
@@ -12,8 +14,8 @@ const DashboardMainPage: React.FC<MainFrameProps> = () => {
 
     return (
         <>
-            <div className="grid grid-cols-5 gap-4">
-                <div className="col-span-1 gap-4">
+            <div className="grid grid-cols-5 gap-4 flex flex-col ">
+                <div className="projectBox col-span-1 gap-4">
                     <div className="shadow-lg bg-white rounded-lg py-2 pl-5 mb-5 ">
                         <h5 className="text-lg font-bold mb-4">My Project</h5>
                     </div>
@@ -31,7 +33,7 @@ const DashboardMainPage: React.FC<MainFrameProps> = () => {
                     ))}
                 </div>
 
-                <div className="col-span-4 gap-4">
+                <div className="taskBox col-span-4 gap-4">
                     <div className="shadow-lg bg-white rounded-lg py-2 pl-5 mb-5 ">
                         <h5 className="text-lg font-bold mb-4">My Tasks</h5>
                     </div>
