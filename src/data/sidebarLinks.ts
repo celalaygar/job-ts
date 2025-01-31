@@ -1,11 +1,11 @@
 import links from './links'; // Import links
 
 export interface SidebarLink {
-    href: string;       // Bağlantının URL'si veya rotası
-    label: string;      // Bağlantı için görünen metin
-    icon: string;       // İkonun adı (ör. Material UI, FontAwesome, vb.)
-    loginRequired: boolean; // Bağlantının giriş gerektirip gerektirmediği
-    activeKey: string;  // Aktif durumda kullanılan anahtar
+    href: string;       
+    label: string;      
+    icon: string;       
+    loginRequired: boolean; 
+    activeKey: string;  
 }
 
 

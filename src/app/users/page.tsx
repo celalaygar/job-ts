@@ -1,11 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import TopMenu from '../../components/TopMenu';
-import Sidebar from '../../components/Sidebar';
 import MainFrameComponent from '@/components/MainFrameComponent';
 import { useSession } from 'next-auth/react';
-import { LinearProgress, List, ListItem, ListItemText } from '@mui/material';
+import { LinearProgress } from '@mui/material';
 import UsersMainPage from '@/components/users/UsersMainPage';
 
 const UsersPage = () => {

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { CssBaseline } from "@mui/material";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers"; // Yeni oluşturduğumuz Providers'ı içe aktarın
