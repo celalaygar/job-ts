@@ -25,7 +25,7 @@ const TopMenu: React.FC<MainFrameProps> = ({ bgColor }) => {
             console.log(currentOrigin);
             sessionStorage.removeItem("globalActiveKey")
             await fetch("/api/auth/logout");
-            await signOut({ callbackUrl: currentOrigin }); // Çıkış yaptıktan sonra o porta yönlendir
+            await signOut({ callbackUrl: currentOrigin + "/" }); // Çıkış yaptıktan sonra o porta yönlendir
         } catch (error) {
             console.error("Çıkış yaparken hata oluştu:", error);
         }
