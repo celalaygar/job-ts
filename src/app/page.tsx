@@ -1,40 +1,39 @@
 "use client";
 
-import React, { useState } from 'react';
-import { Tab, Tabs, Box } from '@mui/material';
-import Login from '../components/Login';
-import Register from '../components/Register';
-import ClientLayout from './ClientLayout';
-import links from '../data/links';
+import React, { useState } from "react";
+import Login from "../components/Login";
+import Register from "../components/Register";
 
 const HomePage = () => {
     const [value, setValue] = useState(0);
 
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        setValue(newValue);
-    };
-
     return (
-        <ClientLayout>
-            <Box
-                sx={{
-                    width: '100%',
-                    typography: 'body1',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginTop: '10px'
-                }}
-            >
-                <Tabs value={value} onChange={handleChange} aria-label="giriş ve kayıt sekmeleri">
-                    <Tab label="Giriş" />
-                    <Tab label="Kayıt Ol" />
-                </Tabs>
+        <div className="flex flex-col items-center justify-center mt-10 w-full">
+            <div className="flex space-x-4 border-b border-gray-300">
+                <button
+                    className={`px-4 py-2 font-medium ${value === 0
+                        ? "border-b-2 border-blue-500 text-blue-500"
+                        : "text-gray-500"
+                        }`}
+                    onClick={() => setValue(0)}
+                >
+                    Giriş
+                </button>
+                <button
+                    className={`px-4 py-2 font-medium ${value === 1
+                        ? "border-b-2 border-blue-500 text-blue-500"
+                        : "text-gray-500"
+                        }`}
+                    onClick={() => setValue(1)}
+                >
+                    Kayıt Ol
+                </button>
+            </div>
+            <div className="mt-6 w-full max-w-md">
                 {value === 0 && <Login />}
                 {value === 1 && <Register />}
-            </Box>
-        </ClientLayout>
+            </div>
+        </div>
     );
 };
 
