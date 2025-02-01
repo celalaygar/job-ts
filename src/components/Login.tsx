@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { TextField, Button } from '@mui/material';
+import { TextField, Button, Alert, Collapse } from '@mui/material';
 import dummyUser from '../data/dummyUser';
 import links from '../data/links';
 import { setCookie } from 'cookies-next';
@@ -13,8 +13,13 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState("");
     const router = useRouter();
+    const [open, setOpen] = React.useState(true);
+    const [loading, setLoading] = useState(false);
+
+
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
+        setLoading(true)
         const res = await signIn("credentials", {
             email,
             password,
@@ -23,9 +28,11 @@ const Login = () => {
 
         if (res?.error) {
             setError("Invalid email or password");
+            setOpen(true)
         } else {
             router.push("/dashboard")
         }
+        setLoading(false)
 
         /*
         if (email === dummyUser.email && password === dummyUser.password) {
@@ -58,9 +65,15 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 size="small"
             />
-            {error && <div className='bg-gray-200'>{error}</div>}
+            {error &&
+                <Collapse in={open}>
+                    <Alert severity="error" onClose={() => { setOpen(false); }}>
+                        {error}
+                    </Alert>
+                </Collapse>
+            }
             <div className="flex justify-end mt-4">
-                <Button variant="contained" color="primary" onClick={handleLogin}>Giriş Yap</Button>
+                <Button disabled={loading} variant="contained" color="primary" onClick={handleLogin}>Giriş Yap</Button>
             </div>
         </div>
     );

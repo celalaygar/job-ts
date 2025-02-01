@@ -8,7 +8,7 @@ const HomePage = () => {
     const [value, setValue] = useState(0);
 
     return (
-        <div className="flex flex-col items-center justify-center mt-10 w-full">
+        <div className="flex flex-col items-center justify-center mt-10 w-full" style={{ backgroundColor: "#ffffff", color: "#111111" }}>
             <div className="flex space-x-4 border-b border-gray-300">
                 <button
                     className={`px-4 py-2 font-medium ${value === 0

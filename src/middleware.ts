@@ -11,8 +11,6 @@ export async function middleware(request: NextRequest) {
 
     const cookies = parse(request.headers.get('cookie') || '');
 
-    //console.log('Login Response Cookie:', loginResponse);
-    console.log('request.nextUrl.pathname:', request.nextUrl.pathname);
 
     // Kullanıcı giriş yapmışsa, login sayfasına erişimini engelle
     if (token && request.nextUrl.pathname === links.login) {

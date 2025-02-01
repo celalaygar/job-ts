@@ -21,7 +21,7 @@ type MainFrameProps = {
 const MainFrameComponent: React.FC<MainFrameProps> = ({ title, children }) => {
 
     return (
-        <div style={{ backgroundColor: themeColor.mainColor }}>
+        <div style={{ backgroundColor: themeColor.mainColor, color: "#111111" }}>
             <TopMenu bgColor={themeColor.topmenuColor} />
             <div className="flex">
                 <Sidebar bgColor={themeColor.sidebarColor} />

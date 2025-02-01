@@ -2,7 +2,7 @@
 
 import projects from '@/data/project';
 import tasks from '@/data/tasks';
-import { LinearProgress } from '@mui/material';
+import { CircularProgress, LinearProgress } from '@mui/material';
 import { getCookie } from 'cookies-next';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -17,7 +17,11 @@ type MainFrameProps = {
 const UsersMainPage: React.FC<MainFrameProps> = ({ users, loading }) => {
 
     return (
-        loading ? <LinearProgress /> :
+        loading ?
+            <>
+            <CircularProgress size="3rem" />
+        </>
+            :
             <>
                 <div className="grid grid-cols-1 gap-4">
                     {users && users.map((user) => (
